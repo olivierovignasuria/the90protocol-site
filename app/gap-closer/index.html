@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Knowing-Doing Gap Closer · The 90 Protocol</title>
+<meta name="description" content="You know what to do, you just do not do it. That is a documented gap, not a character flaw. Turn your one most-avoided action into three if-then plans. Free, private, evidence-based.">
+<link rel="canonical" href="https://the90protocol.com/gap-closer/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Knowing-Doing Gap Closer">
+<meta property="og:description" content="Turn the one action you keep avoiding into three if-then plans. The fix is a trigger, not more willpower. Free and private.">
+<meta property="og:url" content="https://the90protocol.com/gap-closer/">
+<meta property="og:site_name" content="The 90 Protocol">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--ink:#dfe9f6;--muted:#aeb9c9;--faint:#8593a6;--blue:#5ad1ff;--green:#3ee089;--amber:#ffc24a;--line:#27313f;--bg:#05080c;--panel:#0a0f16}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+  .top{border-bottom:1px solid var(--line);background:#070a0f;position:sticky;top:0;z-index:5}
+  .top .in{max-width:760px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between}
+  .top .logo{font-size:12px;letter-spacing:3px;font-weight:800;color:var(--ink)}
+  .top .logo small{display:block;font-weight:400;letter-spacing:1px;font-size:9.5px;color:var(--faint);margin-top:2px}
+  .top nav a{font-size:12.5px;color:var(--muted);margin-left:18px}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 28px}
+  .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  h1{font-size:29px;line-height:1.22;margin:12px 0 12px}
+  .dek{font-size:16px;color:var(--muted);margin:0 0 6px}
+  .mech{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14px;color:#c7d2e0}
+  .mech b{color:var(--ink)}
+  .step{max-width:680px;margin:0 auto;padding:0 22px}
+  .card{background:linear-gradient(180deg,#0b1018,#090d13);border:1px solid #1b2330;border-radius:14px;padding:20px 20px;margin:16px 0}
+  .card .lab{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  .card h2{font-size:18px;margin:8px 0 6px}
+  .card p.q{font-size:14px;color:var(--muted);margin:0 0 12px;line-height:1.6}
+  label.fl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);font-weight:700;display:block;margin:12px 0 6px}
+  input[type=text],textarea,select{width:100%;background:#070a0f;border:1px solid #243042;border-radius:8px;color:var(--ink);font-family:inherit;font-size:14.5px;padding:11px 12px;line-height:1.5}
+  textarea{min-height:60px;resize:vertical}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(90,209,255,.12)}
+  .hint{font-size:12px;color:var(--faint);margin:6px 0 0;line-height:1.55}
+  .ifrow{display:grid;grid-template-columns:1fr;gap:8px;margin:10px 0;padding:12px;background:#0a0f16;border:1px dashed #2a3a4f;border-radius:10px}
+  .ifrow .n{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:800}
+  .ex{font-size:12px;color:var(--faint);font-style:italic;margin-top:4px}
+  .btn{display:inline-block;background:linear-gradient(180deg,#7fe3ff,#39b8e6);color:#05121a;font-weight:800;font-size:14.5px;border:none;border-radius:10px;padding:13px 26px;cursor:pointer}
+  .btn:hover{filter:brightness(1.06)}
+  .btn.sec{background:transparent;color:var(--blue);border:1px solid #243042}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 4px}
+  /* gap map output */
+  .map{display:none;max-width:680px;margin:0 auto;padding:0 22px}
+  .map .sheet{background:radial-gradient(130% 90% at 50% -10%,#161d2a,#0a0e14 65%);border:1px solid #2a3543;border-radius:18px;padding:26px 24px;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+  .map .mttl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  .map h2{font-size:22px;margin:8px 0 4px}
+  .map .avoid{font-size:15px;color:#cfeeff;margin:10px 0 16px;padding:12px 14px;background:#0a0f16;border:1px solid var(--line);border-radius:10px}
+  .map .plan{margin:12px 0;padding:14px 16px;background:#0a0f16;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:10px}
+  .map .plan .pn{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:6px}
+  .map .plan .pt{font-size:15px;color:var(--ink);line-height:1.55}
+  .map .pt b{color:#bfe9ff}
+  .map .note{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.6}
+  /* email capture (opt-in) */
+  .cap{max-width:680px;margin:18px auto 0;padding:0 22px}
+  .cap .box{background:linear-gradient(180deg,#0b1018,#090d13);border:1px solid #1b2330;border-radius:14px;padding:20px}
+  .cap h3{font-size:17px;margin:0 0 8px;color:var(--ink)}
+  .cap p.b{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0 0 14px}
+  .cap input[type=email]{width:100%;background:#070a0f;border:1px solid #243042;border-radius:8px;color:var(--ink);font-family:inherit;font-size:14.5px;padding:11px 12px}
+  .cap input[type=email]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(90,209,255,.12)}
+  .cap .consent{display:flex;gap:9px;align-items:flex-start;margin:12px 0 14px;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .cap .consent input{margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--blue)}
+  .cap .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+  .cap .ok{display:none;font-size:14.5px;color:var(--green);line-height:1.6}
+  .cap .err{display:none;font-size:13px;color:var(--amber);margin-top:10px}
+  .cta{max-width:680px;margin:30px auto;padding:0 22px}
+  .cta .box{background:radial-gradient(120% 90% at 50% 0%,#13202a,#0a0e14 70%);border:1px solid #1f3a44;border-radius:16px;padding:24px 22px}
+  .cta h3{margin:0 0 10px;font-size:18px;color:var(--blue)} .cta p{font-size:14.5px;color:#cdd8e8;line-height:1.65;margin:0 0 16px}
+  .sources{max-width:680px;margin:0 auto;padding:8px 22px}
+  .sources h2{font-size:13px;color:var(--faint);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+  .sources li{font-size:12.5px;color:var(--faint);margin:0 0 6px}
+  .foot{border-top:1px solid var(--line);margin-top:26px}
+  .foot .in{max-width:680px;margin:0 auto;padding:22px;font-size:12px;color:var(--faint);line-height:1.7} .foot a{color:var(--faint);text-decoration:underline}
+  .saved{font-size:11.5px;color:var(--faint)}
+  @media print{.top,.cta,.foot,.btnrow,.sources,#builder,.cap{display:none!important}.map{display:block!important}body{background:#fff;color:#000}.map .sheet{background:#fff;border:1px solid #999;box-shadow:none}.map h2,.map .mttl,.map .plan .pn{color:#000}.map .avoid,.map .plan{background:#f4f4f4;border-color:#ccc}.map .pt b{color:#000}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a href="/" class="logo">THE 90 PROTOCOL<small>the knowing-doing gap closer</small></a>
+  <nav><a href="/learn/">Field notes</a><a href="/">The cockpit</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="kicker">Free instrument</div>
+  <h1>The Knowing-Doing Gap Closer</h1>
+  <p class="dek">You know exactly what to do. You just do not do it. That is not a character flaw or a willpower defect. It is a documented gap, and it closes with a trigger, not with trying harder.</p>
+  <div class="mech"><b>The mechanism:</b> people act on only about half of the intentions they form (Sheeran and Webb, 2016). The reliable fix is not more motivation. It is an if-then plan that pre-decides the exact moment and the exact action, so the behaviour fires on a cue instead of waiting for willpower. Across 94 studies, if-then planning added a medium-to-large effect over goal-setting alone (Gollwitzer and Sheeran, 2006). It works best on one specific action at a time, and less well on vague or long-horizon goals. So this tool stays on a single action and builds the plan around your own stall point.</div>
+</div>
+
+<div id="builder">
+<div class="step">
+  <div class="card">
+    <div class="lab">Step 1 · The action</div>
+    <h2>Name the one thing you keep not doing</h2>
+    <p class="q">Not your whole list. The single action you have known you should take for a while and keep not taking. Be concrete.</p>
+    <label class="fl" for="action">The action I keep avoiding</label>
+    <input type="text" id="action" placeholder="e.g. email the three people who could give me my next contract">
+    <p class="hint">A specific action, not a goal. "Get fit" is a goal. "Do a 20-minute walk" is an action.</p>
+  </div>
+
+  <div class="card">
+    <div class="lab">Step 2 · The stall point</div>
+    <h2>Find where it actually breaks</h2>
+    <p class="q">The gap is rarely "I forgot it matters." It is that the moment to do it arrives and something predictable stops it. Pick the closest one.</p>
+    <label class="fl" for="stall">What usually stops it</label>
+    <select id="stall">
+      <option value="">Choose the closest...</option>
+      <option value="no-cue">The moment passes unnoticed. No specific time or place is attached to it, so it never quite happens.</option>
+      <option value="overwhelm">When the moment comes it feels too big, so I do an easier thing instead.</option>
+      <option value="mood">I wait to feel ready or motivated, and that feeling does not arrive.</option>
+      <option value="interrupt">Something else (a message, a worry, a task) hijacks the moment every time.</option>
+    </select>
+    <label class="fl" for="cue">When and where could you attach it to something that already happens? (a time, a place, or an existing habit)</label>
+    <input type="text" id="cue" placeholder="e.g. right after my morning coffee, at my kitchen table">
+    <p class="hint">A cue you already pass every day is stronger than a time you have to remember.</p>
+    <label class="fl" for="first">The smallest first move that counts as started</label>
+    <input type="text" id="first" placeholder="e.g. open the draft and write one sentence">
+    <p class="hint">Shrink it until it is almost too easy. Starting is the part the gap blocks.</p>
+    <label class="fl" for="obstacle">The obstacle most likely to derail it, in one phrase</label>
+    <input type="text" id="obstacle" placeholder="e.g. I tell myself I will do it later tonight">
+  </div>
+
+  <div class="btnrow">
+    <button class="btn" id="build">Build my Gap Map</button>
+    <span class="saved" id="saved"></span>
+  </div>
+  <p class="hint" style="margin-bottom:24px">Everything you type stays in your own browser. Nothing is sent anywhere, and there is no sign-up.</p>
+</div>
+</div>
+
+<div class="map" id="map">
+  <div class="sheet">
+    <div class="mttl">Your Gap Map</div>
+    <h2>One action, three triggers</h2>
+    <div class="avoid" id="m-action"></div>
+    <div class="plan"><div class="pn" id="m-l1">Plan 1</div><div class="pt" id="m-p1"></div></div>
+    <div class="plan"><div class="pn" id="m-l2">Plan 2</div><div class="pt" id="m-p2"></div></div>
+    <div class="plan"><div class="pn" id="m-l3">Plan 3</div><div class="pt" id="m-p3"></div></div>
+    <div class="note">Make the plan once, properly, and let the cue do the work. You do not need to re-read it every day. The first plan is the cue-based one the evidence is strongest on; the other two are supports that make it easier to keep. If a plan does not fire after a few days, the cue was too weak or too vague. Anchor it to something you physically pass, and rebuild it. One action at a time, so finish this one before adding another.</div>
+  </div>
+  <div class="btnrow" style="margin-top:16px">
+    <button class="btn" onclick="window.print()">Print or save as PDF</button>
+    <button class="btn sec" id="copy">Copy as text</button>
+    <button class="btn sec" id="edit">Edit my answers</button>
+  </div>
+</div>
+
+<div class="cap" id="cap">
+  <div class="box">
+    <div id="cap-form">
+      <h3>Want this kept and followed up?</h3>
+      <p class="b">Enter your email and we will send your Gap Map plus a short Follow-Through Week: one prompt a day to check whether each plan actually fired. These emails also include occasional offers for our paid tools and Kim Calvert's program. No spam, unsubscribe in one click.</p>
+      <input type="email" id="cap-email" placeholder="you@example.com" autocomplete="email" inputmode="email">
+      <label class="consent" for="cap-consent">
+        <input type="checkbox" id="cap-consent">
+        <span>Email my Gap Map and the Follow-Through Week. I understand these are marketing emails from Vigna Suria Oliviero and I can unsubscribe anytime. Privacy: <a href="/privacy.html">/privacy.html</a></span>
+      </label>
+      <button class="btn" id="cap-send" disabled>Send my Gap Map</button>
+      <p class="err" id="cap-err">Something went wrong. Please try again, or reply to us by hand.</p>
+    </div>
+    <p class="ok" id="cap-ok">Check your inbox. Your Gap Map is on its way, and the Follow-Through Week starts tomorrow.</p>
+  </div>
+</div>
+
+<div class="cta"><div class="box">
+  <h3>One tool moved one action. What would the whole machine take?</h3>
+  <p>If a single trigger can move the action you have avoided for weeks, that tells you the gap is mechanical, not a verdict on you. The 90 Protocol is the 90-day version of that idea: a private cockpit that rebuilds the whole operating picture after a shutdown, one instrument at a time. The honest next step if you want it.</p>
+  <a class="btn" href="/">Open the cockpit</a>
+</div></div>
+
+<div class="sources">
+  <h2>Sources</h2>
+  <ul>
+    <li>Sheeran &amp; Webb, "The Intention-Behavior Gap," <em>Social and Personality Psychology Compass</em>, 2016 (roughly half of formed intentions are not acted on).</li>
+    <li>Gollwitzer &amp; Sheeran, "Implementation Intentions and Goal Achievement: A Meta-analysis," <em>Advances in Experimental Social Psychology</em>, 2006 (94 studies; if-then plans add a medium-to-large effect over goal intention alone).</li>
+  </ul>
+</div>
+
+<footer class="foot"><div class="in">
+  A free instrument from The 90 Protocol. It supports clarity and follow-through; it does not diagnose or treat any condition. If you are in crisis, contact a local emergency line or a qualified professional.<br>
+  <a href="/learn/">Field notes</a> · <a href="/">The cockpit</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+</div></footer>
+
+<script>
+(function(){
+  var KEY="t90_gapcloser_v1";
+  var $=function(id){return document.getElementById(id);};
+  var fields=["action","stall","cue","first","obstacle"];
+  function load(){
+    try{var s=JSON.parse(localStorage.getItem(KEY)||"{}");
+      fields.forEach(function(f){ if(s[f]!=null) $(f).value=s[f]; });
+      if(s.built){ render(); }
+    }catch(e){}
+  }
+  function save(){
+    var s={}; fields.forEach(function(f){ s[f]=$(f).value; });
+    s.built = $("map").style.display==="block";
+    try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+    $("saved").textContent="Saved in this browser";
+  }
+  function esc(t){return (t||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+  function val(id,fallback){ var v=($(id).value||"").trim(); return v||fallback; }
+  function stallLine(){
+    var m={
+      "no-cue":"the moment passes unnoticed",
+      "overwhelm":"it feels too big in the moment",
+      "mood":"you wait to feel ready",
+      "interrupt":"something hijacks the moment"
+    };
+    return m[$("stall").value]||"the moment slips by";
+  }
+  // Branch the three plans on the chosen stall point, so the diagnosis actually drives the output.
+  function plansFor(stall, a){
+    var act=a.action, cue=a.cue, first=a.first, obst=a.obstacle;
+    var P=function(l,h){return {l:l,h:h};};
+    if(stall==="overwhelm"){
+      return [
+        P("Plan 1 · Shrink the start","<b>If</b> "+cue+", <b>then</b> I will do only the smallest first step: "+first+"."),
+        P("Plan 2 · A stopping line","<b>If</b> it starts to feel too big once I have begun, <b>then</b> I will set a five minute timer and let myself stop when it rings."),
+        P("Plan 3 · Catch the planning","<b>If</b> I notice I am planning instead of starting, <b>then</b> I will do "+first+" for two minutes, right then.")
+      ];
+    }
+    if(stall==="mood"){
+      return [
+        P("Plan 1 · The cue decides, not the mood","<b>If</b> "+cue+", <b>then</b> I will start on this whether or not I feel ready: "+act+"."),
+        P("Plan 2 · Name the wait","<b>If</b> I catch myself thinking I will do it once I feel ready, <b>then</b> I will start "+first+" within ten minutes."),
+        P("Plan 3 · Act before checking the feeling","<b>If</b> I have not started by the time "+cue+" again, <b>then</b> I will do the first step before I check how I feel.")
+      ];
+    }
+    if(stall==="interrupt"){
+      return [
+        P("Plan 1 · Do it first","<b>If</b> "+cue+", <b>then</b> I will start on this before I open anything else: "+act+"."),
+        P("Plan 2 · Remove the hijack","<b>If</b> "+obst+", <b>then</b> I will remove the one thing that pulls me away (phone in another room, the tab closed) and do "+first+"."),
+        P("Plan 3 · Return, not later","<b>If</b> I get pulled away mid task, <b>then</b> I will come back to "+first+" as the next thing, not after one more thing.")
+      ];
+    }
+    // default: no-cue (the moment passes unnoticed)
+    return [
+      P("Plan 1 · Anchor the cue","<b>If</b> "+cue+", <b>then</b> I will start on this: "+act+"."),
+      P("Plan 2 · Put it where you cannot miss it","<b>If</b> "+cue+" arrives, <b>then</b> the first step will already be in front of me (the draft open, the shoes by the door): "+first+"."),
+      P("Plan 3 · A backup before the day ends","<b>If</b> the day ends and this has not happened, <b>then</b> I will do the first step before bed and set the same cue for tomorrow.")
+    ];
+  }
+  function planData(){
+    var a={
+      action: esc(val("action","the action you keep avoiding")),
+      cue: esc(val("cue","you finish your morning coffee")),
+      first: esc(val("first","the smallest possible first step")),
+      obstacle: esc(val("obstacle","I start telling myself I will do it later"))
+    };
+    return plansFor($("stall").value, a);
+  }
+  function render(){
+    var action=val("action","the action you keep avoiding");
+    var plans=planData();
+    $("m-action").innerHTML="<b>The action:</b> "+esc(action)+"<br><span style='color:var(--faint);font-size:13px'>Where it breaks: "+esc(stallLine())+".</span>";
+    for(var i=0;i<3;i++){ $("m-l"+(i+1)).textContent=plans[i].l; $("m-p"+(i+1)).innerHTML=plans[i].h; }
+    $("builder").style.display="none";
+    $("map").style.display="block";
+    window.scrollTo(0,0);
+  }
+  function need(id){ var v=($(id).value||"").trim(); if(!v){ $(id).focus(); $(id).style.borderColor="var(--amber)"; return false; } return true; }
+  $("build").onclick=function(){
+    // gate: an if-then plan is only worth anything with a concrete action AND a concrete cue.
+    if(!need("action")) return;
+    if(!need("cue")){ $("cue").scrollIntoView({block:"center"}); return; }
+    render(); save();
+  };
+  $("edit").onclick=function(){ $("map").style.display="none"; $("builder").style.display="block"; save(); window.scrollTo(0,0); };
+  $("copy").onclick=function(){
+    var action=val("action","the action you keep avoiding");
+    var plans=planData(), strip=function(h){return h.replace(/<[^>]+>/g,"");};
+    var txt="MY GAP MAP\nThe action I keep avoiding: "+action+"\nWhere it breaks: "+stallLine()+".\n\n"
+      +plans[0].l+"\n"+strip(plans[0].h)+"\n\n"
+      +plans[1].l+"\n"+strip(plans[1].h)+"\n\n"
+      +plans[2].l+"\n"+strip(plans[2].h)+"\n\n"
+      +"Why it works: an if-then plan pre-decides the moment, so the action fires on a cue instead of waiting for willpower (Gollwitzer and Sheeran, 2006).";
+    if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ $("copy").textContent="Copied"; setTimeout(function(){$("copy").textContent="Copy as text";},1800); }); }
+  };
+  fields.forEach(function(f){ $(f).addEventListener("input",function(){ $(f).style.borderColor=""; save(); }); });
+
+  // ---- Email capture (opt-in lead magnet) ----
+  // Button stays disabled until a valid email is entered AND consent is ticked.
+  // Consent is never pre-checked. On submit we POST email + the gap inputs.
+  function validEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test((v||"").trim()); }
+  function capGate(){
+    var ready = validEmail($("cap-email").value) && $("cap-consent").checked;
+    $("cap-send").disabled = !ready;
+  }
+  function capPlansText(){
+    var plans=planData(), strip=function(h){return (h||"").replace(/<[^>]+>/g,"");};
+    return plans.slice(0,3).map(function(pl){ return pl.l+": "+strip(pl.h); });
+  }
+  if($("cap-email")){
+    $("cap-email").addEventListener("input", capGate);
+    $("cap-consent").addEventListener("change", capGate);
+    $("cap-send").addEventListener("click", function(){
+      if($("cap-send").disabled) return;
+      $("cap-err").style.display="none";
+      $("cap-send").disabled=true; $("cap-send").textContent="Sending...";
+      var payload={
+        email: $("cap-email").value.trim(),
+        action: val("action","the action you keep avoiding"),
+        stall: $("stall").value || null,
+        plans: capPlansText(),
+        consent: true,
+        ts: new Date().toISOString()
+      };
+      fetch("/.netlify/functions/gap-closer-signup",{
+        method:"POST",
+        headers:{"content-type":"application/json"},
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if(res && res.ok){ $("cap-form").style.display="none"; $("cap-ok").style.display="block"; }
+        else { throw new Error(res && res.reason || "failed"); }
+      }).catch(function(){
+        $("cap-err").style.display="block";
+        $("cap-send").textContent="Send my Gap Map"; capGate();
+      });
+    });
+  }
+
+  load();
+})();
+</script>
+<script>
+/* first-party, cookieless usage ping (same pipe as the cockpit, honors Do-Not-Track) */
+(function(){
+  var EP="/.netlify/functions/t90event";
+  function dnt(){try{var d=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;return d==="1"||d===1||d==="yes";}catch(e){return false;}}
+  function sid(){try{var k="t90_sid",s=sessionStorage.getItem(k);if(!s){var a=new Uint8Array(8);if(window.crypto&&crypto.getRandomValues){crypto.getRandomValues(a);}else{for(var i=0;i<8;i++)a[i]=Math.floor(Math.random()*256);}s=Array.prototype.map.call(a,function(b){return("0"+b.toString(16)).slice(-2);}).join("");sessionStorage.setItem(k,s);}return s;}catch(e){return "nosid";}}
+  function track(ev){try{if(dnt())return;var body=JSON.stringify({ev:ev,path:"gap-closer",sid:sid(),ts:Date.now()});if(navigator.sendBeacon){var b=new Blob([body],{type:"application/json"});if(navigator.sendBeacon(EP,b))return;}if(window.fetch){fetch(EP,{method:"POST",body:body,keepalive:true,headers:{"content-type":"application/json"}}).catch(function(){});}}catch(e){}}
+  track("gc_view");
+  document.addEventListener("click",function(e){
+    var t=e.target&&e.target.closest?e.target.closest("a,button"):null; if(!t)return;
+    if(t.id==="build") track("gc_build");
+    else if(t.id==="cap-send") track("gc_signup");
+    else if(t.matches&&t.matches(".cta a.btn")) track("gc_cta");
+  },true);
+})();
+</script>
+</body>
+</html>

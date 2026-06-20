@@ -1,0 +1,20 @@
+[build]
+  publish = "app"
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Friendly path for the Lemon Squeezy webhook
+[[redirects]]
+  from = "/webhooks/lemon"
+  to = "/.netlify/functions/lemon-webhook"
+  status = 200
+  force = true
+
+# Friendly path for the Stripe webhook
+[[redirects]]
+  from = "/webhooks/stripe"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
+  force = true

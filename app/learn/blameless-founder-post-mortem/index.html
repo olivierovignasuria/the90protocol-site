@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Blameless Founder Post-Mortem: A Framework You'll Actually Use (Template) · The 90 Protocol</title>
+<meta name="description" content="Most founder post-mortems are useless confessions or alibis. The blameless method, borrowed from engineering, finds the real cause. A complete framework and copy-paste template inside.">
+<link rel="canonical" href="https://the90protocol.com/learn/blameless-founder-post-mortem/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Blameless Founder Post-Mortem: A Framework You'll Actually Use">
+<meta property="og:description" content="Problem to trigger to root cause to action. The blameless post-mortem method founders can run on their own shutdown, with the template included.">
+<meta property="og:url" content="https://the90protocol.com/learn/blameless-founder-post-mortem/">
+<meta property="og:site_name" content="The 90 Protocol">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Blameless Founder Post-Mortem (Template Inside)">
+<meta name="twitter:description" content="Stop writing the confession or the alibi. The blameless method finds the cause you can actually carry forward.">
+<style>
+  :root{--ink:#dfe9f6;--muted:#aeb9c9;--faint:#8593a6;--blue:#5ad1ff;--green:#3ee089;--line:#27313f;--bg:#05080c;--panel:#0a0f16}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+  .top{border-bottom:1px solid var(--line);background:#070a0f;position:sticky;top:0;z-index:5}
+  .top .in{max-width:760px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between}
+  .top .logo{font-size:12px;letter-spacing:3px;font-weight:800;color:var(--ink)}
+  .top .logo small{display:block;font-weight:400;letter-spacing:1px;font-size:9.5px;color:var(--faint);margin-top:2px}
+  .top nav a{font-size:12.5px;color:var(--muted);margin-left:18px}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 26px}
+  .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  h1{font-size:30px;line-height:1.25;letter-spacing:.2px;margin:14px 0 12px}
+  .dek{font-size:16px;color:var(--muted);margin:0}
+  .meta{font-size:12px;color:var(--faint);margin:16px 0 0;border-top:1px solid var(--line);padding-top:14px}
+  article{max-width:680px;margin:0 auto;padding:6px 22px 10px}
+  article h2{font-size:21px;color:#cfeeff;margin:34px 0 10px;letter-spacing:.2px}
+  article h3{font-size:17px;color:var(--ink);margin:26px 0 8px}
+  article p{font-size:16.5px;color:#c7d2e0;margin:0 0 18px}
+  article ul{color:#c7d2e0;font-size:16.5px;padding-left:22px} article li{margin:0 0 10px}
+  article strong{color:var(--ink)}
+  blockquote{margin:20px 0;padding:14px 18px;background:var(--panel);border-left:3px solid var(--blue);border-radius:8px;color:#cdd8e8;font-size:16px}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;color:#c7d2e0;vertical-align:top}
+  th{color:var(--blue);font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
+  .cta{max-width:680px;margin:34px auto;padding:0 22px}
+  .cta .box{background:radial-gradient(120% 90% at 50% 0%,#13202a,#0a0e14 70%);border:1px solid #1f3a44;border-radius:16px;padding:26px 24px}
+  .cta h3{margin:0 0 10px;font-size:18px;color:var(--blue)} .cta p{font-size:15px;color:#cdd8e8;line-height:1.65;margin:0 0 16px}
+  .btn{display:inline-block;background:linear-gradient(180deg,#7fe3ff,#39b8e6);color:#05121a;font-weight:800;font-size:14.5px;letter-spacing:.3px;border-radius:10px;padding:13px 26px}
+  .btn:hover{filter:brightness(1.06);text-decoration:none}
+  .rel{max-width:680px;margin:0 auto;padding:6px 22px 0}
+  .rel .r{display:block;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;color:var(--ink)}
+  .rel .r:hover{border-color:#33506a;text-decoration:none} .rel .r small{display:block;color:var(--faint);font-size:12px;margin-top:4px}
+  .foot{border-top:1px solid var(--line);margin-top:30px}
+  .foot .in{max-width:680px;margin:0 auto;padding:22px;font-size:12px;color:var(--faint);line-height:1.7} .foot a{color:var(--faint);text-decoration:underline}
+  @media(max-width:520px){h1{font-size:25px}article p,article li{font-size:16px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"The Blameless Founder Post-Mortem: A Framework You'll Actually Use","description":"The blameless post-mortem method for founders after a shutdown, borrowed from engineering, with a copy-paste template.","mainEntityOfPage":{"@type":"WebPage","@id":"https://the90protocol.com/learn/blameless-founder-post-mortem/"},"author":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"publisher":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"about":["startup post-mortem","founder failure","blameless retrospective"],"inLanguage":"en"}
+</script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a href="/" class="logo">THE 90 PROTOCOL<small>first 90 days after the close</small></a>
+  <nav><a href="/learn/">Field notes</a><a href="/">The cockpit</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="kicker">Field note · Framework</div>
+  <h1>The Blameless Founder Post-Mortem: A Framework You'll Actually Use (Template Inside)</h1>
+  <p class="dek">Most founder post-mortems collapse into a confession or an alibi and teach you nothing. The blameless method, borrowed from how engineering teams investigate outages, finds the cause you can actually carry forward. Copy the template and run it on your own shutdown.</p>
+  <div class="meta">The 90 Protocol · a private instrument for founders in the first 90 days after the close</div>
+</div>
+
+<article>
+  <h2>Why most founder post-mortems are useless</h2>
+  <p>After a company closes, almost everyone tells you to "do a post-mortem and learn from it." Almost nobody tells you how, so most founder post-mortems end up as one of two useless things.</p>
+  <p>The first useless kind is the confession. Pages of "I should have known, I was naive, I wasted the money." It feels like honesty. It is actually just self-punishment with a structure, and it teaches you nothing you can use, because "I'm an idiot" is not a cause you can fix on the next venture.</p>
+  <p>The second useless kind is the alibi. "The market wasn't ready. My co-founder flaked. The timing was bad." Every cause sits safely outside your own control. It protects your ego and teaches you nothing either, because if none of it was yours, there is nothing for you to do differently.</p>
+  <p>A blameless post-mortem is the third thing. It is borrowed from how serious engineering teams investigate outages, where the entire discipline is built on one rule: you cannot find the real cause if people are busy defending themselves. Blame and learning cannot occupy the same room. So you remove the blame on purpose, not to be kind to yourself, but because blame is what hides the cause.</p>
+  <p>One founder noticed the precondition for this without naming the method. She wrote: "Two weeks of actual rest is what allowed me to sit down in late October and write the post-mortem with honesty and clarity." That is the real prerequisite. You cannot run this fogged or flinching. Rest first, then run it.</p>
+  <p>Here is the framework. It is genuinely useful on its own. Copy the template at the bottom and run it on your own shutdown.</p>
+
+  <h2>The structure: problem to trigger to root cause to action</h2>
+  <p>A blameless post-mortem moves through four columns, in order, for each thing that went wrong. The discipline is in keeping them separate, because the failures everyone repeats come from collapsing them together.</p>
+
+  <h3>1. The problem (what actually happened)</h3>
+  <p>State the observable fact, with no story attached. Not "we were bad at sales." That is a judgment, not a fact. The fact is: "We had 40 demo calls in Q3 and closed 2." Numbers where you have them. The story comes later, and if you let it in now it contaminates everything downstream.</p>
+  <p>The test for this column: could a neutral stranger who watched your company agree this is simply what happened, with nothing to argue about? If they could argue, it is not a fact yet. Strip it down until it is.</p>
+
+  <h3>2. The trigger (the visible event)</h3>
+  <p>What was the proximate event, the thing that set the problem off? "We ran out of runway in month 18." "Our biggest customer churned in March." "The co-founder left in week 30." The trigger is the part everyone remembers, because it is dramatic and easy to point at.</p>
+  <p>It is also almost never the real cause. The trigger is where lazy post-mortems stop. "We failed because the big customer left." That is true and useless. The big customer leaving was a trigger. The reason one customer leaving could end the company is the actual cause, and it sits one or more layers underneath.</p>
+
+  <h3>3. The root cause (keep asking why)</h3>
+  <p>This is the core of the method, and the place to spend most of your effort. From the trigger, keep asking "why," roughly five times, until you reach something that is a real decision or a real condition rather than another symptom.</p>
+  <p>Worked example:</p>
+  <ul>
+    <li>Problem: the company ran out of money and closed.</li>
+    <li>Trigger: the biggest customer, 60% of revenue, churned in March.</li>
+    <li>Why did one churn end us? Because one customer was 60% of revenue.</li>
+    <li>Why was one customer 60%? Because we never built a repeatable way to land smaller ones.</li>
+    <li>Why not? Because every quarter we chose to deepen the one big account instead of fixing the top of the funnel.</li>
+    <li>Why did we keep choosing that? Because the big account always felt more urgent than the slow work of building a pipeline, so the important thing lost to the urgent thing, every single quarter.</li>
+  </ul>
+  <p>That last line is a root cause. It is a real, repeatable pattern in how you make decisions, not a one-off event and not a character flaw. "The customer churned" gives you nothing to carry forward. "I consistently let the urgent crowd out the important" is something you can build a guardrail against on the next venture. That is the difference between a post-mortem you file and one you use.</p>
+
+  <h3>4. The action (the guardrail for next time)</h3>
+  <p>For each root cause, write one concrete thing that would change the outcome if the same pattern showed up again. Not a vibe. A guardrail. "Notice when revenue concentration crosses 30% in one account and treat it as a standing risk to actively work down." "Put the important-but-not-urgent work on the calendar before the urgent work can eat the week."</p>
+  <p>If you cannot write a concrete action for a root cause, you have not reached the root cause yet. Go back to column three and ask why one more time. A root cause you cannot act on is still a symptom in disguise.</p>
+
+  <h2>The three rules that keep it honest</h2>
+  <p>The structure above is only as good as the discipline you run it with. Three rules separate a real post-mortem from theater.</p>
+
+  <h3>Rule one: the half-time-on-why rule</h3>
+  <p>Spend at least half your total time in column three, the root cause. The natural instinct is the opposite. People rush through "why" to get to the satisfying part, writing actions and resolutions. But the actions are only as good as the root cause underneath them, and a shallow root cause produces a confident, useless action plan. If you finish and realize you spent most of your time anywhere but column three, you did not run a post-mortem. You wrote a to-do list with a sad introduction.</p>
+
+  <h3>Rule two: the controllable-causes gate</h3>
+  <p>You are not allowed to finish until at least one root cause is something you controlled.</p>
+  <p>This is the gate that stops the alibi version. If every root cause on your page is external (the market, the timing, the co-founder, the funding climate), you have not found the lessons, you have found the excuses, and the post-mortem cannot advance. Not because external factors are not real. They often are. But you cannot change the market on the next venture. You can only change what you do. The only lessons you can carry forward live in the column of things you controlled, so the method refuses to let you skip that column.</p>
+  <p>This rule has a quiet second job: it is also what stops the post-mortem from sliding into the confession. The gate is "at least one controllable cause," not "every cause is your fault." Naming one thing you owned is honest. Claiming you owned all of it is just the self-punishment version wearing a serious face. One real controllable cause, stated plainly, and you have passed the gate.</p>
+
+  <h3>Rule three: sort shame from guilt before you start</h3>
+  <p>This is the rule that makes the other two survivable, and it rests on a distinction worth getting precise about. Guilt is "I did a specific thing wrong." Shame is "I am wrong." Guilt points at an action you can change. Shame points at your identity, which you cannot post-mortem and should not try to.</p>
+  <p>A blameless post-mortem runs on guilt and is poisoned by shame. "I let revenue concentrate in one account" is guilt, and it is useful: it names an action, so it produces a guardrail. "I'm the kind of person who fails" is shame, and it is useless: it names no action, so it produces nothing but more fog. Before you start, decide that this document is a list of specific decisions, not a verdict on you as a person. Every time the writing drifts toward "I am," pull it back to "I did." The first teaches you something. The second just hurts.</p>
+  <p>This is also why the rest comes first. The founder who waited two weeks before writing hers was not being self-indulgent. She was waiting until she could run the thing on guilt instead of shame, which is the only state in which it works.</p>
+
+  <h2>The template (copy this and run it)</h2>
+  <blockquote>Run this only once you have had real rest. Tired, you will write the confession or the alibi. Rested, you can write the one that is actually useful.</blockquote>
+  <p><strong>Top of page, before any failures:</strong></p>
+  <ul>
+    <li>Shame-to-guilt line: write one sentence reminding yourself this is a list of decisions, not a verdict on you. Re-read it whenever the writing turns to "I am."</li>
+  </ul>
+  <p><strong>Then, for each thing that went wrong, a four-column row:</strong></p>
+  <table>
+    <thead><tr><th>Problem (observable fact, no story)</th><th>Trigger (the visible event)</th><th>Root cause (ask why ~5 times)</th><th>Action (one concrete guardrail)</th></tr></thead>
+    <tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody>
+  </table>
+  <p><strong>Before you close it, run the two gates:</strong></p>
+  <ul>
+    <li>Half-time-on-why gate: did you spend at least half your time in the root-cause column? If not, you wrote a to-do list. Go back.</li>
+    <li>Controllable-causes gate: is at least one root cause something you controlled? If every cause is external, you found excuses, not lessons. Go back and find the one you owned. (And check the other edge: if every cause is "all my fault," you slid into shame. Pull it back to specific decisions.)</li>
+  </ul>
+  <p><strong>At the very bottom:</strong></p>
+  <ul>
+    <li>Write the three to five guardrails you are carrying into whatever comes next, in plain language. That short list, not the whole document, is the actual output. It is the thing the next venture inherits.</li>
+  </ul>
+  <p>That is the entire framework. It is complete, and it is yours. If you run it honestly, you will end up with a small set of guardrails you can actually use, and a version of the story that costs you less energy every time someone asks what happened.</p>
+
+  <h2>Where this fits in the bigger picture</h2>
+  <p>A few honest caveats, because the method is good but it is not magic.</p>
+  <p>A post-mortem is one instrument, not the whole recovery. It tells you what to carry forward. It does not, by itself, tell you whether to start again, and it cannot promise the next one works. The base rates are sobering and worth saying plainly: of the founders who close a company and start another, only about one in five see the next one succeed, and many never start another at all. A clean post-mortem improves the quality of the lessons you carry. It does not buy you an outcome, and anyone who tells you it does is selling something.</p>
+  <p>It also works best as part of a sequence. The post-mortem belongs in the middle of the first 90 days, after you have rested and stabilized, because, as that founder found, you cannot write it with honesty and clarity while you are still in the fog. Run it too early and you will produce the confession or the alibi, no matter how good the template is.</p>
+</article>
+
+<div class="cta"><div class="box">
+  <h3>Run the post-mortem inside the 90-day cockpit</h3>
+  <p>The framework above stands entirely on its own, and you lose nothing by running it from this page alone. If you want it inside a structured 90-day version, with the controllable-causes gate enforced for you and a private cockpit that reads your state before it lets you make the bigger go/no-go call, that is what The 90 Protocol is built for. The next step if you want one, not the point of this article.</p>
+  <a class="btn" href="/">Open the cockpit</a>
+</div></div>
+
+<div class="rel">
+  <a class="r" href="/learn/decisions-from-exhaustion/">Decisions From Exhaustion<small>Why you cannot trust your own judgment right now, and how to get fresh eyes on yourself in private.</small></a>
+</div>
+
+<footer class="foot"><div class="in">
+  The 90 Protocol is an instrument, not a coach and not a promise of a comeback. It does not give financial, legal, or medical advice. If you are in crisis, contact a local emergency line or a qualified professional.<br>
+  <a href="/learn/">All field notes</a> · <a href="/">The cockpit</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+</div></footer>
+</body>
+</html>

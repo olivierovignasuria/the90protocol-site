@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The 90 Protocol · Your first 90 days after the shutdown</title>
+<meta name="description" content="A structured instrument for founders in the first 90 days after closing a company. Built by an engineer who rebuilt with a system, not a pep talk." />
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121922; --panel2:#0e141c; --ink:#e8eef5; --muted:#8aa0b4;
+    --line:#1f2c3a; --accent:#37d0a0; --warn:#e7b53c; --stall:#e5604d; --blue:#4aa3ff;
+    --radius:14px; --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 80px}
+  header.top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--blue));display:grid;place-items:center;font-weight:800;color:#06121a}
+  .brand{font-weight:700;letter-spacing:.2px}
+  .tag{color:var(--muted);font-size:13px;margin:2px 0 22px}
+  h1{font-size:26px;line-height:1.25;margin:18px 0 8px}
+  h2{font-size:19px;margin:0 0 4px}
+  .lead{color:var(--muted);margin:0 0 18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin:16px 0}
+  .card.locked{opacity:.55}
+  .belief{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--stall);border-radius:10px;padding:16px 18px;margin:18px 0}
+  .belief strong{color:var(--ink)}
+  .step{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px}
+  label{display:block;font-size:14px;color:var(--muted);margin:12px 0 4px}
+  input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:11px 12px;font-size:15px}
+  textarea{min-height:70px;resize:vertical}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:140px}
+  button{cursor:pointer;border:0;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:600}
+  .btn{background:var(--accent);color:#06121a}
+  .btn.alt{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn.block{width:100%;margin-top:14px}
+  .choices{display:grid;gap:10px;margin-top:8px}
+  .choice{border:1px solid var(--line);background:var(--panel2);border-radius:10px;padding:12px;cursor:pointer}
+  .choice.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+  .out{margin-top:14px;padding:14px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);white-space:pre-wrap}
+  .gauge{font-size:34px;font-weight:800;margin:6px 0}
+  .zone{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700}
+  .z-green{background:rgba(55,208,160,.15);color:var(--accent)}
+  .z-warn{background:rgba(231,181,60,.15);color:var(--warn)}
+  .z-stall{background:rgba(229,96,77,.15);color:var(--stall)}
+  .muted{color:var(--muted)}
+  .lockbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+  .pill{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+  hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+  footer{color:var(--muted);font-size:13px;margin-top:30px;text-align:center}
+  a{color:var(--blue)}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+  .aud{display:flex;align-items:center;gap:10px;margin:10px 0 4px}
+  .aud span{font-size:12px;color:var(--muted);white-space:nowrap}
+  .aud audio{height:34px;max-width:100%}
+  ol.deliverables{margin:8px 0 0;padding-left:22px}
+  ol.deliverables li{margin:0 0 10px;padding-left:4px}
+  ol.deliverables li strong{color:var(--ink)}
+  .mockup{margin:14px 0 0;text-align:center}
+  .mockup img{max-width:100%;border:1px solid var(--line);border-radius:12px;background:var(--panel2)}
+  .bump{border:1px dashed var(--accent);background:rgba(55,208,160,.06);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:14px}
+  .bump strong{color:var(--ink)}
+  body{overflow-x:hidden}
+  h1,h2,p{overflow-wrap:break-word}
+  @media(max-width:480px){ h1{font-size:22px} .row>div{min-width:120px} .wrap{padding:22px 16px 70px} }
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1038792388478904');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1038792388478904&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">90</div>
+    <div>
+      <div class="brand">The 90 Protocol</div>
+      <div class="tag">Your first 90 days after the shutdown. Structure before strategy.</div>
+    </div>
+  </header>
+
+  <h1>You did not lose a company. You lost the identity you ran on. Get it back before the next idea.</h1>
+  <p class="lead">That is why the money problem and the identity problem feel like the same problem. They are not. This is an instrument, not a pep talk. Built by an engineer who shut down his own company and rebuilt with a system.</p>
+  <p class="lead" style="color:var(--accent)">Your runway number and your first week take about ten minutes. The other 90 days are the rebuild, not the wait.</p>
+  <div class="aud"><span>🔊 Start here</span><audio controls preload="none" src="audio/m1.mp3"></audio></div>
+
+  <!-- FALSE-BELIEF BLOCK (Tindaro Sera 2, element 4) -->
+  <div class="belief">
+    <strong>You have been told to just start the next thing.</strong> That is the panic talking, not a plan. The next idea is the easiest place to hide from the runway you have not counted yet. Count it first.
+  </div>
+
+  <!-- WHAT YOU GET (numbered list, the 5 deliverables) -->
+  <div class="card">
+    <div class="step">What you get</div>
+    <h2>A guided tool, not another ebook.</h2>
+    <p class="muted">You answer a few honest questions and it gives you, in order:</p>
+    <ol class="deliverables">
+      <li><strong>A precise read on where you actually are.</strong> Survival, identity, or control: the honest starting point, not a guess.</li>
+      <li><strong>Your runway as a number, with a stall threshold.</strong> The fear becomes a calculation you can act on.</li>
+      <li><strong>A two-week protocol.</strong> The minimum daily structure that gets you moving again, without a panic-pivot.</li>
+      <li><strong>An Operator Inventory.</strong> Proof on paper that the operator survives the company.</li>
+      <li><strong>Four scripts for the conversations you are avoiding.</strong> Family, network, investors, and the "so what do you do now?" line.</li>
+    </ol>
+  </div>
+
+  <!-- MOCKUP placeholder (Tindaro Sera 2, element D: mockups sell even when digital) -->
+  <div class="card">
+    <div class="step">What it looks like</div>
+    <h2>The Cash Cockpit and the printable workbook</h2>
+    <div class="mockup">
+      <img src="media/mockup_cockpit.png" alt="The Cash Cockpit runway readout and the printable 90 Protocol workbook" />
+    </div>
+    <p class="note">The real tool: your runway number, your stall threshold, and this week's single cash move.</p>
+  </div>
+
+  <!-- MODULE 1: DIAGNOSIS (free) -->
+  <div class="card">
+    <div class="step">Module 1 · The Diagnosis · free</div>
+    <h2>Where are you right now?</h2>
+    <p class="muted">Pick the line that is most true today.</p>
+    <div class="choices" id="painChoices">
+      <div class="choice" data-level="1">"I need a new business or a job, fast."</div>
+      <div class="choice" data-level="2">"I do not know who I am without the company."</div>
+      <div class="choice" data-level="3">"I want to feel competent and in control again."</div>
+    </div>
+    <div id="diagOut"></div>
+  </div>
+
+  <!-- MODULE 2: CASH COCKPIT (free calc) -->
+  <div class="card">
+    <div class="step">Module 2 · The Cash Cockpit · free</div>
+    <h2>Turn the anxiety into a number.</h2>
+    <p class="muted">Runway is not a feeling. It is a calculation. Fill the three fields.</p>
+    <div class="aud"><span>🔊 Listen</span><audio controls preload="none" src="audio/m2.mp3"></audio></div>
+    <div class="row">
+      <div><label>Cash available (€)</label><input id="cash" type="number" inputmode="numeric" placeholder="e.g. 18000" /></div>
+      <div><label>Monthly personal burn (€)</label><input id="burn" type="number" inputmode="numeric" placeholder="e.g. 2600" /></div>
+      <div><label>Residual income / month (€)</label><input id="inc" type="number" inputmode="numeric" placeholder="e.g. 400" /></div>
+    </div>
+    <button class="btn block" id="calcBtn">Calculate my runway</button>
+    <div id="cockpitOut"></div>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="card" id="emailCard">
+    <div class="step">See your full plan · free</div>
+    <h2>Get the full diagnosis + the next steps</h2>
+    <p class="muted">The protocol, the identity reframe and the conversation scripts are below. Leave your email to save your results and open Module 3 onward.</p>
+    <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="leadForm">
+      <input type="hidden" name="form-name" value="lead" />
+      <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+      <input type="email" name="email" id="leadEmail" placeholder="you@email.com" required />
+      <input type="hidden" name="pain_level" id="leadPain" />
+      <input type="hidden" name="runway" id="leadRunway" />
+      <label style="margin-top:10px">Optional: what is the hardest part right now?</label>
+      <textarea name="hardest_part" placeholder="In your own words. This shapes what we build next."></textarea>
+      <button class="btn block" type="submit">Save my results</button>
+    </form>
+    <div class="note">No spam. You can leave any time. This is a tool, not a newsletter machine.</div>
+  </div>
+
+  <!-- PAID SECTION -->
+  <div id="paid">
+    <div class="card locked" id="m3">
+      <div class="step">Module 3 · Your 90-day plan</div>
+      <h2>Your personalized 90-day plan</h2>
+      <p class="muted">Rebuilding starts with the next day, not the next company. This builds your phased plan from your diagnosis and your runway zone. Save it as a PDF and work it.</p>
+      <div class="aud"><span>🔊 Listen</span><audio controls preload="none" src="audio/m3.mp3"></audio></div>
+      <button class="btn block" id="genProtocol" disabled>Generate my 90-day plan</button>
+      <div id="protocolOut"></div>
+    </div>
+
+    <div class="card locked" id="m4">
+      <div class="step">Module 4 · Identity Reframe</div>
+      <h2>The operator survives the company</h2>
+      <p class="muted">List what does not disappear when the company does.</p>
+      <div class="aud"><span>🔊 Listen</span><audio controls preload="none" src="audio/m4.mp3"></audio></div>
+      <label>3 skills you used every week (comma separated)</label>
+      <input id="skills" placeholder="hiring, pricing, shipping under pressure" disabled />
+      <label>3 people who would take your call tomorrow</label>
+      <input id="people" placeholder="a former client, a mentor, an ex-teammate" disabled />
+      <button class="btn block" id="genCard" disabled>Build my Operator Card</button>
+      <div id="cardOut"></div>
+    </div>
+
+    <div class="card locked" id="m5">
+      <div class="step">Module 5 · The Scripts · bump</div>
+      <h2>How to say it, without shame and without excuses</h2>
+      <p class="muted">The people who talk about it openly seem to come back faster. Generate your four conversations.</p>
+      <div class="aud"><span>🔊 Listen</span><audio controls preload="none" src="audio/m5.mp3"></audio></div>
+      <button class="btn block" id="genScripts" disabled>Generate my 4 scripts</button>
+      <div id="scriptsOut"></div>
+    </div>
+
+    <div class="card" id="buy">
+      <div class="step">Take it offline · the kit</div>
+      <h2>Get the workbook, the audio, and the scripts</h2>
+      <p class="muted">The plan above gets you moving for free. The kit is the printable workbook plus narrated audio to actually work the 90 days, and the four conversation scripts. Built to do, not just read.</p>
+      <a href="https://buy.stripe.com/3cI28kfgv5Qp07AfAZaZi07" target="_blank" onclick="if(window.fbq)fbq('track','InitiateCheckout');"><button class="btn block">Get The 90 Protocol: $39</button></a>
+      <div class="bump"><strong>At checkout, add The Scripts (the four conversations) for $17.</strong> The exact words for family, network, investors, and the "so what do you do now?" line.</div>
+      <div class="note">Instant download by email. 14 day refund if it does not give you a clearer next step.</div>
+    </div>
+
+    <div class="card" id="m6">
+      <div class="step">Module 6 · The Honest Gap</div>
+      <h2>This rebuilt the operator. The next level is the pattern underneath.</h2>
+      <p class="muted">Runway, structure and a way to talk about it: done. But the paradigm that drove the decisions behind the collapse is a different level of work. If you want to work on that level, have a conversation.</p>
+      <div class="aud"><span>🔊 Listen</span><audio controls preload="none" src="audio/m6.mp3"></audio></div>
+      <a id="callLink" href="https://calendly.com/the90protocol/30min" target="_blank"><button class="btn block">Book a conversation</button></a>
+      <div class="note">No pressure. This is the next level, not a hidden upsell.</div>
+    </div>
+  </div>
+
+  <hr/>
+  <div class="lockbar">
+    <span class="pill">Free: Module 1-2</span>
+    <span class="pill">Full tool: Module 2 (complete) + 3 + 4 + 6</span>
+    <span class="pill">Bump: The Scripts</span>
+    <span class="pill">Next level: the conversation</span>
+  </div>
+  <p class="note">The numbers above are your own inputs, not predictions or promises. Secure checkout is handled by Stripe. Your download link arrives by email right after payment.</p>
+
+  <footer>
+    The 90 Protocol · an instrument for the first 90 days · built by an engineer who rebuilt after the shutdown.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var state = { pain:null, runway:null, zone:null, unlocked:false };
+  function $(id){return document.getElementById(id);}
+
+  // Module 1
+  var diagMap = {
+    "1":"You are in survival framing. Useful for a week, dangerous for a month. The risk is a panic-pivot into the wrong thing to make the fear stop. First we measure the runway, then we decide.",
+    "2":"This is the real one, and the slowest to resolve. Your identity fused with the venture. The work is to separate self-worth from the company, deliberately. Money is easier to fix than this.",
+    "3":"Good. Competence and control are rebuilt through structure, not motivation. You do not need a new idea yet. You need the next day to have a shape."
+  };
+  document.querySelectorAll('#painChoices .choice').forEach(function(c){
+    c.addEventListener('click',function(){
+      document.querySelectorAll('#painChoices .choice').forEach(function(x){x.classList.remove('sel');});
+      c.classList.add('sel');
+      state.pain = c.getAttribute('data-level');
+      $('leadPain').value = state.pain;
+      $('diagOut').innerHTML = '<div class="out">'+diagMap[state.pain]+'</div>';
+    });
+  });
+
+  // Module 2 cockpit (runway math, hardened)
+  $('calcBtn').addEventListener('click',function(){
+    var cash = parseFloat($('cash').value)||0;
+    var burn = parseFloat($('burn').value)||0;
+    var inc = parseFloat($('inc').value)||0;
+    if(cash<=0 || burn<=0){ $('cockpitOut').innerHTML='<div class="out">Enter your cash and monthly burn to calculate.</div>'; return; }
+    var net = burn - inc;
+    if(net<=0){
+      state.zone='COVERED'; state.runway=null; $('leadRunway').value='covered';
+      $('cockpitOut').innerHTML='<div class="out"><span class="zone z-green">NOT THE CONSTRAINT</span>'+
+        '<p style="margin-top:10px">Your residual income covers your burn, so runway is not your bottleneck right now. The real work is the next move and your identity, not the money. Build the plan, then go to Module 4.</p>'+
+        '<p class="note">A planning tool, not financial advice.</p></div>';
+      return;
+    }
+    var months = cash/net;
+    state.runway = Math.round(months*10)/10;
+    $('leadRunway').value = state.runway;
+    var zone, cls, msg, move;
+    if(months>9){ zone="STABLE"; cls="z-green"; msg="You have runway. If no income is lined up the risk is drifting; if it is, the risk is paralysis. Either way, spend the time on structure, not a rushed pivot."; move="This week: protect the runway and start the plan. Do not spend on a new venture yet."; }
+    else if(months>=4){ zone="CAUTION"; cls="z-warn"; msg="Enough runway to rebuild deliberately, not enough to drift. Every month counts."; move="This week: cut one fixed cost and line up one small bridge income, then run the plan."; }
+    else { zone="STALL"; cls="z-stall"; msg="Short runway. Priority is a bridge income to extend it, not the perfect next venture. Do not panic pivot."; move="This week: land one paid task you can deliver in 7 days with skills you already have."; }
+    state.zone = zone;
+    var bridgeBy = Math.max(1, Math.ceil(months - 3));
+    var bridgeLine = (months<4)
+      ? 'You are already inside the danger window: a bridge income is this week, not later.'
+      : 'Line up a bridge income before month '+bridgeBy+'. It takes roughly 3 months to land one, so do not wait until the runway is gone.';
+    $('cockpitOut').innerHTML =
+      '<div class="out"><div class="muted">Runway</div>'+
+      '<div class="gauge">'+state.runway+' months</div>'+
+      '<span class="zone '+cls+'">'+zone+'</span>'+
+      '<p style="margin-top:10px">'+msg+'</p>'+
+      '<p class="muted">'+bridgeLine+'</p>'+
+      '<p><strong>This week\'s single cash move:</strong> '+move+'</p>'+
+      '<p class="note">Estimate at constant burn. A planning tool, not financial advice.</p></div>';
+  });
+
+  // Email gate -> unlock paid modules (client-side unlock for the demo; Netlify captures the lead)
+  function unlock(){
+    state.unlocked = true;
+    if(window.fbq) fbq('track','Lead');
+    ['m3','m4','m5'].forEach(function(id){ $(id).classList.remove('locked'); });
+    ['genProtocol','genCard','genScripts','skills','people'].forEach(function(id){ $(id).disabled=false; });
+    $('emailCard').innerHTML = '<div class="out">Unlocked. Your plan is below. We saved your email so you can come back to your results.</div>';
+  }
+  $('leadForm').addEventListener('submit',function(e){
+    // Let Netlify capture, but unlock immediately for UX. On a static demo without Netlify, still unlock.
+    var email = $('leadEmail').value;
+    if(!email){ e.preventDefault(); return; }
+    // Try native Netlify submit via fetch so the page does not navigate away.
+    e.preventDefault();
+    var fd = new FormData(e.target);
+    var body = new URLSearchParams(fd).toString();
+    // 1) Netlify Forms capture (dashboard record + native event)
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body}).catch(function(){});
+    // 2) Direct trigger of the lead nurture (instant E1 + lead store); idempotent server-side
+    fetch('/.netlify/functions/submission-created', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(Object.fromEntries(fd))})
+      .then(function(){ unlock(); })
+      .catch(function(){ unlock(); });
+  });
+
+  // Module 3: personalized 90-day plan
+  $('genProtocol').addEventListener('click',function(){
+    var z = state.zone || "CAUTION";
+    var pain = state.pain || "3";
+    var rest = (pain==='2')
+      ? "Two weeks of active stop. Permission to rest is part of the plan: real rest is what lets you write an honest post-mortem instead of a panicked one."
+      : "One week of active stop, then start. Sleep, move, one human contact a day. No big decisions in week one.";
+    if(z==='STALL') rest = "Compress the stop to a few days. Your runway does not allow two weeks off: stabilize cash first, rest in smaller doses.";
+    var w12 = (z==='STALL')
+      ? "Land one paid task you can deliver this week. Bridge income before anything else."
+      : (z==='STABLE' || z==='COVERED')
+      ? "Resist launching. Use the calm for the post-mortem and the Operator Inventory."
+      : "Cut one fixed cost, line up one small bridge income, hold the structure.";
+    var w712 = (z==='STALL')
+      ? "Turn bridge income into something repeatable. Explore the next venture only once cash is stable."
+      : "Run small, cheap experiments toward the next move. No all-in bets yet. Decide what good work looks like now.";
+    var html = '<div class="out" id="planBody">'+
+      '<strong>Your 90-day plan ('+z+' zone)</strong>\n\n'+
+      '<strong>Weeks 1 to 2. Stabilize.</strong>\n'+rest+'\n'+
+      'Three daily anchors: a sleep window, 20 minutes of movement, one real human contact. One operational decision per day, not ten.\n'+
+      'Cash focus: '+w12+'\n\n'+
+      '<strong>Weeks 3 to 6. Rebuild the operator.</strong>\n'+
+      'Operator Inventory (Module 4): the skills and people that survive the company. Separate self-worth from the venture. Write the honest post-mortem. Have the first two conversations (the Scripts).\n\n'+
+      '<strong>Weeks 7 to 12. Re-engage.</strong>\n'+w712+'\n\n'+
+      'The honest gap: this rebuilds the operator. Changing the paradigm under the collapse is the next level. When you are ready, have the conversation.</div>'+
+      '<button class="btn alt" id="printPlan" style="margin-top:10px">Save my plan as PDF</button>';
+    $('protocolOut').innerHTML = html;
+    $('printPlan').addEventListener('click', printPlan);
+  });
+  function printPlan(){
+    var el = $('planBody'); var body = el ? el.innerText : '';
+    var w = window.open('', '_blank');
+    if(!w) return;
+    w.document.write('<html><head><title>My 90-Day Plan, The 90 Protocol</title>'+
+      '<style>body{font:14px/1.65 Georgia,serif;color:#16202b;max-width:640px;margin:40px auto;padding:0 20px;white-space:pre-wrap}h1{font-family:Arial,sans-serif;font-size:20px}.f{color:#888;font-size:12px;margin-top:20px}</style></head>'+
+      '<body><h1>The 90 Protocol, my 90-day plan</h1>'+body.replace(/[<>]/g,'')+'<p class="f">the90protocol.com</p></body></html>');
+    w.document.close(); w.focus(); setTimeout(function(){w.print();},350);
+  }
+
+  // Module 4 operator card
+  $('genCard').addEventListener('click',function(){
+    var sk = ($('skills').value||"").trim() || "skills you used every week";
+    var pe = ($('people').value||"").trim() || "people who would take your call";
+    $('cardOut').innerHTML = '<div class="out">'+
+      '<strong>Operator Card</strong>\n'+
+      'The company is gone. The operator is not.\n\n'+
+      'What survives: '+sk+'.\n'+
+      'Who still answers: '+pe+'.\n\n'+
+      'Read this when the doubt hits: the people who matter care about who you are, not what you accomplished. The failure is feedback about the venture, not a verdict about you.</div>';
+  });
+
+  // Module 5 scripts
+  $('genScripts').addEventListener('click',function(){
+    $('scriptsOut').innerHTML = '<div class="out">'+
+      '<strong>Four conversations, honest, not apologetic</strong>\n\n'+
+      '1) Family / partner: "I closed the company on purpose. It was the lucid call, not a collapse. Here is the runway, here is the plan for the next 90 days, here is what I need from you."\n\n'+
+      '2) Professional network: "I wound down the company. I am taking a deliberate reset, then choosing the next thing with intent. If you hear of work that fits, I am open."\n\n'+
+      '3) Investors / partners: "The honest call was to return what was left and stop. Here is the post-mortem and what I learned. I am not disappearing."\n\n'+
+      '4) The "so what do you do now?" line: "I just closed a company. I am in a structured reset before the next move. Ask me again in a few weeks, I will have a sharper answer."</div>';
+  });
+
+  // Call link is replaced at deploy; if placeholder, point to a safe anchor.
+  var cl = $('callLink');
+  if(cl.getAttribute('href').indexOf('REPLACE')>-1){ cl.setAttribute('href','#'); }
+})();
+</script>
+</body>
+</html>
