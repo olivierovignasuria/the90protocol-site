@@ -5,7 +5,7 @@
    ===================================================================== */
 
 /* ---- WIRE-LATER CONSTANTS (placeholders) ---- */
-var CHECKOUT_URL = "https://buy.stripe.com/00w6oA9Wb1A94nQ2OdaZi08";  // Stripe $39 v2 cockpit; success redirects to /app/?ok=t90 (unlock)
+var CHECKOUT_URL = "https://the90protocol.lemonsqueezy.com/checkout/custom/acd48a1c-2741-4b4a-9a3b-3a6d5cd73c25?signature=0b5d9246dd9fb6d7deb02d9883b06bf44145b6e09ef26a50656cbf4de95dc3ee";  // Lemon Squeezy $39 (Merchant of Record); redirect baked in -> https://the90protocol.com/?ok=t90 (unlock)
 var CALL_URL     = "https://source.dynamitelifestyle.com/book-discovery-call-40/appointment/o-galaxy";  // Dynamite discovery call: books under Oliviero, manual handoff to Lindsay (closer)
 var PRICE        = "$39";
 var STORE_KEY    = "the90_v2";
