@@ -130,21 +130,20 @@ export default async (req, context) => {
 
   const results = { telegram: null, blob: null, email: null };
 
-  // 1) Notify Oliviero on Telegram (primary buyer capture)
+  // Idempotency: LS can retry a webhook delivery. Key on the order identifier and
+  // bail if we've already handled it, so a retry never sends a second welcome email.
+  const store = getStore({ name: "buyers", consistency: "strong" });
+  const key = `${a.identifier || orderNo || Date.now()}.json`;
   try {
-    await notifyTelegram(
-      `🍋 <b>New order — The 90 Protocol</b>${isTest}\n` +
-      `👤 ${name || "(no name)"} &lt;${email}&gt;\n` +
-      `📦 ${variant}${total ? ` · ${total}` : ""}\n` +
-      `#️⃣ ${orderNo}`
-    );
-    results.telegram = "sent";
-  } catch (e) { results.telegram = `error: ${e.message}`; }
+    if (await store.get(key)) {
+      return new Response(JSON.stringify({ ok: true, duplicate: true, orderNo }), {
+        status: 200, headers: { "content-type": "application/json" },
+      });
+    }
+  } catch { /* if the dedupe read fails, fall through and process normally */ }
 
-  // 2) Persist the buyer (durable record beyond Telegram)
+  // 1) Persist the buyer first (claims this order id, so the dedupe above is durable)
   try {
-    const store = getStore({ name: "buyers", consistency: "strong" });
-    const key = `${a.identifier || orderNo || Date.now()}.json`;
     await store.setJSON(key, {
       email, name, variant, total, orderNo,
       identifier: a.identifier || null,
@@ -154,6 +153,17 @@ export default async (req, context) => {
     });
     results.blob = key;
   } catch (e) { results.blob = `error: ${e.message}`; }
+
+  // 2) Notify Oliviero on Telegram (primary buyer capture)
+  try {
+    await notifyTelegram(
+      `🍋 <b>New order — The 90 Protocol</b>${isTest}\n` +
+      `👤 ${name || "(no name)"} &lt;${email}&gt;\n` +
+      `📦 ${variant}${total ? ` · ${total}` : ""}\n` +
+      `#️⃣ ${orderNo}`
+    );
+    results.telegram = "sent";
+  } catch (e) { results.telegram = `error: ${e.message}`; }
 
   // 3) Send the E1 welcome email
   try {
