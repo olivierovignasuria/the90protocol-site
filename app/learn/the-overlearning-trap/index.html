@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Overlearning Trap: Wrong Lessons From a Shutdown · The 90 Protocol</title>
+<meta name="description" content="After a shutdown, founders extract one clean lesson from a complex event. Research on failure taxonomy and explanatory style shows why it is usually wrong.">
+<link rel="canonical" href="https://the90protocol.com/learn/the-overlearning-trap/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Overlearning Trap: Wrong Lessons From a Shutdown">
+<meta property="og:description" content="Most shutdowns are complex failures with multiple causes. Edmondson, Kahneman, and Seligman explain why the clean lesson you extracted is probably wrong, and what a better one looks like.">
+<meta property="og:url" content="https://the90protocol.com/learn/the-overlearning-trap/">
+<meta property="og:site_name" content="The 90 Protocol">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Overlearning Trap: Wrong Lessons From a Shutdown">
+<meta name="twitter:description" content="After a shutdown, founders extract one clean lesson from a complex event. Research on failure taxonomy and explanatory style shows why it is usually wrong.">
+<style>
+  :root{--ink:#dfe9f6;--muted:#aeb9c9;--faint:#8593a6;--blue:#5ad1ff;--green:#3ee089;--line:#27313f;--bg:#05080c;--panel:#0a0f16}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+  .top{border-bottom:1px solid var(--line);background:#070a0f;position:sticky;top:0;z-index:5}
+  .top .in{max-width:760px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between}
+  .top .logo{font-size:12px;letter-spacing:3px;font-weight:800;color:var(--ink)}
+  .top .logo small{display:block;font-weight:400;letter-spacing:1px;font-size:9.5px;color:var(--faint);margin-top:2px}
+  .top nav a{font-size:12.5px;color:var(--muted);margin-left:18px}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 26px}
+  .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  h1{font-size:30px;line-height:1.25;letter-spacing:.2px;margin:14px 0 12px}
+  .dek{font-size:16px;color:var(--muted);margin:0}
+  .meta{font-size:12px;color:var(--faint);margin:16px 0 0;border-top:1px solid var(--line);padding-top:14px}
+  article{max-width:680px;margin:0 auto;padding:6px 22px 10px}
+  article h2{font-size:21px;color:#cfeeff;margin:34px 0 10px;letter-spacing:.2px}
+  article p{font-size:16.5px;color:#c7d2e0;margin:0 0 18px}
+  article strong{color:var(--ink)}
+  blockquote{margin:20px 0;padding:14px 18px;background:var(--panel);border-left:3px solid var(--blue);border-radius:8px;color:#cdd8e8;font-size:16px}
+  .cta{max-width:680px;margin:34px auto;padding:0 22px}
+  .cta .box{background:radial-gradient(120% 90% at 50% 0%,#13202a,#0a0e14 70%);border:1px solid #1f3a44;border-radius:16px;padding:26px 24px}
+  .cta h3{margin:0 0 10px;font-size:18px;color:var(--blue)} .cta p{font-size:15px;color:#cdd8e8;line-height:1.65;margin:0 0 16px}
+  .btn{display:inline-block;background:linear-gradient(180deg,#7fe3ff,#39b8e6);color:#05121a;font-weight:800;font-size:14.5px;letter-spacing:.3px;border-radius:10px;padding:13px 26px}
+  .btn:hover{filter:brightness(1.06);text-decoration:none}
+  .sources{max-width:680px;margin:0 auto;padding:8px 22px}
+  .sources h2{font-size:13px;color:var(--faint);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+  .sources li{font-size:13px;color:var(--faint);margin:0 0 6px}
+  .rel{max-width:680px;margin:0 auto;padding:6px 22px 0}
+  .rel .r{display:block;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;color:var(--ink)}
+  .rel .r:hover{border-color:#33506a;text-decoration:none} .rel .r small{display:block;color:var(--faint);font-size:12px;margin-top:4px}
+  .foot{border-top:1px solid var(--line);margin-top:30px}
+  .foot .in{max-width:680px;margin:0 auto;padding:22px;font-size:12px;color:var(--faint);line-height:1.7} .foot a{color:var(--faint);text-decoration:underline}
+  @media(max-width:520px){h1{font-size:25px}article p{font-size:16px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"The Overlearning Trap: Why the Lesson From Your Shutdown Is Probably Wrong","description":"After a shutdown, founders extract one clean lesson from a complex event. Research on failure taxonomy and explanatory style shows why it is usually wrong.","mainEntityOfPage":{"@type":"WebPage","@id":"https://the90protocol.com/learn/the-overlearning-trap/"},"author":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"publisher":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"about":["startup failure lessons","what to learn from a failed startup","founder post-shutdown","failure attribution","overlearning"],"inLanguage":"en"}
+</script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a href="/" class="logo">THE 90 PROTOCOL<small>first 90 days after the close</small></a>
+  <nav><a href="/learn/">Field notes</a><a href="/">The cockpit</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="kicker">Field note · Evidence</div>
+  <h1>The Overlearning Trap: Why the Lesson From Your Shutdown Is Probably Wrong</h1>
+  <p class="dek">You ran the post-mortem. You named the lesson. You are carrying it forward as the thing you now know. The certainty is the problem, not the absence of reflection.</p>
+  <div class="meta">The 90 Protocol · a private instrument for founders in the first 90 days after the close</div>
+</div>
+
+<article>
+  <p>After a company closes, a story forms quickly. It usually names one cause: the wrong market, raising too early, a bad hire, a co-founder split, a timing miss. The story feels earned. You were there. You watched the specific thing that did not work. The problem is not that the story is false. The problem is that it is too clean, and you are about to carry it into the next two years as though it were a precise diagnosis.</p>
+  <p>This is the overlearning trap. Not the absence of learning. The presence of too much certainty about a lesson extracted from a single complex event.</p>
+
+  <h2>Complex failures do not come with a single cause attached</h2>
+  <p>Amy Edmondson's research on organizational failure distinguishes three categories. Preventable failures involve known causes and foreseeable outcomes: a deviation from a procedure that produces an error. Complex failures involve multiple contributing factors, each necessary but none sufficient on its own. Intelligent failures produce new knowledge in conditions where the outcome could not have been predicted.</p>
+  <p>Most startup shutdowns belong in the second or third category. The market shifted, the capital environment changed, the product was right but the customer segment was wrong, two independent things went bad at the same time. The contributing factors interacted in ways that no single vantage point could see clearly, including yours.</p>
+  <p>Assigning one cause to a complex failure is itself an analytical error. The lesson that feels most true, "I raised too early," "I underestimated the sales cycle," "I picked the wrong co-founder," may identify a real factor. It rarely identifies the determining one. And building the next venture around the correction of one real-but-not-determining factor is a reliable way to repeat the underlying error from a different angle.</p>
+
+  <h2>The mind assembles the story, it does not recall it</h2>
+  <p>Here is the mechanism behind the certainty. After you know the outcome, your mind builds a coherent account of how it happened. That account draws on real memories, real data, real events. But the order, the weighting, the sense that it all pointed to the same conclusion: that is assembly, not recall.</p>
+  <p>Kahneman's work on how automatic thinking operates identifies this pattern across a large range of domains. The fast, automatic system produces narratives that cohere and feel clear. The effortful, deliberate system is what would slow the process down, test the weighting, and consider alternatives. But the deliberate system is resource-intensive and easily overridden when you already feel like you know.</p>
+  <p>After a shutdown you are depleted, which is precisely when the automatic system runs hardest and the deliberate one runs lightest. The lesson that clicks into place with the most certainty is most likely the one the automatic system found first, not the one that survived actual scrutiny. That speed is not a sign of accuracy. It is a sign of how thinly the deliberate system is running.</p>
+
+  <h2>The pervasiveness problem</h2>
+  <p>Seligman's research on how people explain negative outcomes identifies three dimensions that determine whether the explanation is adaptive or corrosive. One of them is pervasiveness: how broadly you apply the failure to your general capabilities.</p>
+  <p>"I misjudged a specific market at a specific time" is a bounded explanation. "I am bad at reading markets" is a pervasive one. "The sales cycle killed us in this vertical" is bounded. "I don't understand B2B sales" is pervasive. The difference is not modest. Pervasive explanations write off a capability entirely. Bounded ones locate the failure accurately enough to update without overwriting.</p>
+  <p>The overlearning trap tends to produce pervasive lessons because a clean lesson requires a general statement. If the real cause was a complex interaction of several factors, you cannot carry it as a single sentence. So the mind compresses it, and compression almost always increases pervasiveness. The sentence gets shorter and broader, and the capability it writes off gets larger.</p>
+
+  <h2>What a better lesson looks like</h2>
+  <p>Edmondson's framework offers a useful test: could this lesson have been known in advance, before the failure? If the answer is no, the failure is complex or intelligent, and the lesson should be probabilistic, not deterministic.</p>
+  <p>A probabilistic lesson sounds like: "In markets with long sales cycles and underfunded buyers, I now know to validate budget commitment before building." A deterministic one sounds like: "Never do enterprise sales." The first is a calibration. The second is a verdict that forecloses an entire domain based on one data point under one set of conditions.</p>
+  <p>The practical difference matters when the next decision arrives. A founder carrying a verdict stops evaluating. A founder carrying a calibration applies it conditionally, which is the right behavior for a world where the same conditions rarely repeat exactly.</p>
+  <p>A bounded, probabilistic lesson is also harder to carry. It does not close the question the way a clean verdict does. That discomfort is the signal it is more accurate. The work of the first 90 days is to resist the compression, let the failure stay complex, and extract conditions rather than verdicts. That is slower. It is also the only version that transfers correctly to what comes next.</p>
+</article>
+
+<div class="cta"><div class="box">
+  <h3>A framework that holds the ambiguity for you</h3>
+  <p>The 90 Protocol is a private, 90-day cockpit built for exactly the period when the automatic system is fastest and the deliberate one is most depleted. It keeps the big strategic calls locked until your own readings say you can make them clearly, and it builds the structure that prevents a compressed lesson from becoming a verdict you carry for years. The thinking here stands on its own. The instrument is the honest next step if you want that structure built for you.</p>
+  <a class="btn" href="/">Open the cockpit</a>
+</div></div>
+
+<div class="sources">
+  <h2>Sources</h2>
+  <ul>
+    <li>Edmondson, A. (2011). "Strategies of Learning from Failure," <em>Harvard Business Review</em> (the three-category taxonomy of failure: preventable, complex, and intelligent; complex failures involve multiple interacting factors with no single cause).</li>
+    <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em> (the automatic System 1 constructs coherent narratives after outcomes are known; the deliberate System 2 is resource-intensive and easily overridden, especially under depletion).</li>
+    <li>Seligman, M. (1991). <em>Learned Optimism</em> (the three dimensions of explanatory style: permanence, pervasiveness, and personalization; pervasive explanations apply a failure broadly across capabilities and predict worse recovery outcomes).</li>
+  </ul>
+</div>
+
+<div class="rel">
+  <a class="r" href="/learn/what-kind-of-failure-was-it/">What Kind of Failure Was It? The Taxonomy Founders Miss<small>Edmondson's three categories and a three-question diagnostic for where your shutdown lands.</small></a>
+  <a class="r" href="/learn/explanatory-style-after-shutdown/">Why Your Story About the Failure Matters More Than the Facts<small>Seligman's three dimensions and which explanatory pattern predicts learned helplessness.</small></a>
+</div>
+
+<footer class="foot"><div class="in">
+  The 90 Protocol is an instrument, not a coach and not a promise of a comeback. It does not give financial, legal, or medical advice. If you are in crisis, contact a local emergency line or a qualified professional.<br>
+  <a href="/learn/">All field notes</a> · <a href="/">The cockpit</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+</div></footer>
+</body>
+</html>
