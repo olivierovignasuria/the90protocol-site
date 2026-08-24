@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When to Do the Post-Mortem After a Shutdown · The 90 Protocol</title>
+<meta name="description" content="The reflex is to write it the day after. That is when you can least trust what you write. Here is when the analysis actually holds, and why.">
+<link rel="canonical" href="https://the90protocol.com/learn/post-mortem-timing/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When to Do the Post-Mortem After a Shutdown">
+<meta property="og:description" content="The first-day draft feels the most complete and is the least reliable. Kahneman, Seligman, Edmondson, and Strenze on why post-mortem timing decides whether the analysis holds.">
+<meta property="og:url" content="https://the90protocol.com/learn/post-mortem-timing/">
+<meta property="og:site_name" content="The 90 Protocol">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="When to Do the Post-Mortem After a Shutdown">
+<meta name="twitter:description" content="The first-day post-mortem is a mood report you will have to unwrite. Why the timing matters, and the two documents on two clocks that actually work.">
+<style>
+  :root{--ink:#dfe9f6;--muted:#aeb9c9;--faint:#8593a6;--blue:#5ad1ff;--green:#3ee089;--line:#27313f;--bg:#05080c;--panel:#0a0f16}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+  .top{border-bottom:1px solid var(--line);background:#070a0f;position:sticky;top:0;z-index:5}
+  .top .in{max-width:760px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between}
+  .top .logo{font-size:12px;letter-spacing:3px;font-weight:800;color:var(--ink)}
+  .top .logo small{display:block;font-weight:400;letter-spacing:1px;font-size:9.5px;color:var(--faint);margin-top:2px}
+  .top nav a{font-size:12.5px;color:var(--muted);margin-left:18px}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 26px}
+  .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+  h1{font-size:30px;line-height:1.25;letter-spacing:.2px;margin:14px 0 12px}
+  .dek{font-size:16px;color:var(--muted);margin:0}
+  .meta{font-size:12px;color:var(--faint);margin:16px 0 0;border-top:1px solid var(--line);padding-top:14px}
+  article{max-width:680px;margin:0 auto;padding:6px 22px 10px}
+  article h2{font-size:21px;color:#cfeeff;margin:34px 0 10px;letter-spacing:.2px}
+  article p{font-size:16.5px;color:#c7d2e0;margin:0 0 18px}
+  article strong{color:var(--ink)}
+  blockquote{margin:20px 0;padding:14px 18px;background:var(--panel);border-left:3px solid var(--blue);border-radius:8px;color:#cdd8e8;font-size:16px}
+  .cta{max-width:680px;margin:34px auto;padding:0 22px}
+  .cta .box{background:radial-gradient(120% 90% at 50% 0%,#13202a,#0a0e14 70%);border:1px solid #1f3a44;border-radius:16px;padding:26px 24px}
+  .cta h3{margin:0 0 10px;font-size:18px;color:var(--blue)} .cta p{font-size:15px;color:#cdd8e8;line-height:1.65;margin:0 0 16px}
+  .btn{display:inline-block;background:linear-gradient(180deg,#7fe3ff,#39b8e6);color:#05121a;font-weight:800;font-size:14.5px;letter-spacing:.3px;border-radius:10px;padding:13px 26px}
+  .btn:hover{filter:brightness(1.06);text-decoration:none}
+  .sources{max-width:680px;margin:0 auto;padding:8px 22px}
+  .sources h2{font-size:13px;color:var(--faint);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+  .sources li{font-size:13px;color:var(--faint);margin:0 0 6px}
+  .rel{max-width:680px;margin:0 auto;padding:6px 22px 0}
+  .rel .r{display:block;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;color:var(--ink)}
+  .rel .r:hover{border-color:#33506a;text-decoration:none} .rel .r small{display:block;color:var(--faint);font-size:12px;margin-top:4px}
+  .foot{border-top:1px solid var(--line);margin-top:30px}
+  .foot .in{max-width:680px;margin:0 auto;padding:22px;font-size:12px;color:var(--faint);line-height:1.7} .foot a{color:var(--faint);text-decoration:underline}
+  @media(max-width:520px){h1{font-size:25px}article p{font-size:16px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"When to Do the Post-Mortem After a Shutdown","description":"The first-day post-mortem is the one you can least trust. Kahneman, Seligman, Edmondson, and Strenze on why timing decides whether the analysis holds.","mainEntityOfPage":{"@type":"WebPage","@id":"https://the90protocol.com/learn/post-mortem-timing/"},"author":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"publisher":{"@type":"Organization","name":"The 90 Protocol","url":"https://the90protocol.com/"},"about":["startup post-mortem timing","when to do a founder post-mortem","post-shutdown analysis","founder recovery"],"inLanguage":"en"}
+</script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a href="/" class="logo">THE 90 PROTOCOL<small>first 90 days after the close</small></a>
+  <nav><a href="/learn/">Field notes</a><a href="/">The cockpit</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="kicker">Field note · Timing</div>
+  <h1>When to Do the Post-Mortem After a Shutdown</h1>
+  <p class="dek">The reflex, an hour after you make the call, is to sit down and write the story of why. That is exactly when the story you would write is least reliable. Here is what the research says about when your own account is worth trusting, and how to protect the analysis until then.</p>
+  <div class="meta">The 90 Protocol · a private instrument for founders in the first 90 days after the close</div>
+</div>
+
+<article>
+  <p>You just made the call. The cash is spent, the metric will not move, the round will not come. An hour later you open a document and start writing the story of why. It feels like the responsible thing to do. Get the lesson while it is fresh. Get it down before you forget.</p>
+  <p>The problem is that in the first days after a shutdown, the story you would write is the story your mind can least be trusted to tell. The document that feels most complete on day one reads different in three weeks, and reads like someone else's account in three months. It is not that you got worse at analysis. It is that the version of you writing today is not the version who should be writing this document.</p>
+
+  <h2>Why the first draft feels so clear</h2>
+  <p>Kahneman's account of how the mind operates splits it into two systems. The fast, automatic system runs on pattern and mood and constructs coherent stories from whatever pieces are handy. The slow, deliberate system is what would test the weighting, examine alternatives, and hold uncertainty long enough for the analysis to be useful. It is also depleted by exactly the conditions that produce a shutdown: bad sleep, sustained financial stress, difficult conversations you had to keep having, months of walking around with the same problem in your head.</p>
+  <p>Under those conditions, the fast system runs hardest and the deliberate one runs lightest. The story that clicks into place with the most conviction is likely the one the fast system found first, not the one that survived scrutiny. The certainty is the depletion talking, not the accuracy.</p>
+
+  <h2>The explanatory style trap in the first days</h2>
+  <p>Seligman's work on how people explain bad events identifies three dimensions: whether you read the cause as personal or external, as permanent or temporary, as pervasive or specific. Those dimensions matter because they predict what happens next. Personal, permanent, pervasive readings track with worse recovery outcomes. Temporary and specific readings track with the opposite.</p>
+  <p>In the first days after a shutdown, most founders swing hard toward the harshest end of all three. It is all my fault. I will always be like this. Every part of what I do is compromised. That reading is not the record. It is a mood report from a nervous system that is doing what nervous systems do under threat. If you commit the mood report to paper and label it "post-mortem," you will believe it for months, because you wrote it down and it has your name on it.</p>
+
+  <h2>Complex failures take weeks to see</h2>
+  <p>Edmondson's failure taxonomy separates three kinds. Preventable failures come from known causes and foreseeable deviations. Complex failures come from multiple contributing factors interacting in a way no single vantage point could see clearly. Intelligent failures produce new information under conditions where the outcome could not have been predicted.</p>
+  <p>Most shutdowns are complex, and complex failures do not resolve into their real shape on day one. The evidence is scattered across memory, documents, conversations, market data, and the reactions of people you talked to during the last quarter. Assembling that honestly takes weeks, and requires rereading with a mind that is not still on fire. The clean single-cause story available on day one is exactly the kind of compression Edmondson's work warns against. It is a category error dressed as an insight.</p>
+
+  <h2>What the record is actually for</h2>
+  <p>Strenze's meta-analysis on what predicts long-term performance is one of the more sobering pieces of research in this area. The short version: durable, structured feedback over time does more of the predictive work than the motivational states people tend to focus on. That implies something specific about what a post-mortem is for. It is not catharsis. It is not a well-turned narrative you can quote later. It is a durable input to a feedback loop that runs across the next venture.</p>
+  <p>A post-mortem written on day one, out of mood, does not feed that loop. It contaminates it. What feeds the loop is a record accurate enough to still hold up when you reread it a year from now, and an analysis produced by the version of you that came back from the shutdown, not the version that was still inside it.</p>
+
+  <h2>The timing that actually works</h2>
+  <p>Split the work into two documents on two different clocks.</p>
+  <p>The first is a same-day record. Not analysis. Facts. Dates, numbers, decisions and when they were made, cash position on the day of the call, who was told what and when, what the last few weeks of user or customer data actually showed. Just the record. This part is time-critical because your memory is at its sharpest for specifics right now, and specifics decay fast.</p>
+  <p>The second is the actual post-mortem, and it should wait. A month at the earliest. Longer if your sleep is still broken or you have not yet had a week that felt normal. The purpose of the wait is not distance for its own sake. It is to let the deliberate system come back online, let the explanatory style swing back toward accuracy, and let the complex causes surface at their real weights. The analysis you write then will be usable. The analysis you write today, however clean it looks, is a mood report you will have to unwrite later.</p>
+
+  <h2>What to do with the wait</h2>
+  <p>Wood's research on how habits operate is useful here. Behaviour is largely cued by context, which means if your context is the same laptop, the same open tabs, and the same coffee shop where you built the company, your automatic system will keep replaying instead of resting. Change the cues that trigger the loop. Close the tabs, move the artefacts, put physical distance between you and the material for at least the first stretch. The wait is not idle. It is the condition under which the later document will be worth writing.</p>
+  <p>The version of you who reads that later document is not the version who wrote the first draft. Their questions are: what pattern do I need to notice earlier, what structure do I need next time, what kind of failure was this actually. Not: whose fault was it. Not: am I broken. Write for that later reader, on their clock, not on the clock of the first hard night.</p>
+</article>
+
+<div class="cta"><div class="box">
+  <h3>A structure that holds the analysis until you can trust it</h3>
+  <p>The 90 Protocol is a private, 90-day cockpit built for exactly the period when the automatic system is fastest and the deliberate one is most depleted. It keeps the record on one clock and the analysis on another, and it holds the big calls locked until your own readings say you can make them clearly. The thinking here stands on its own. The instrument is the honest next step if you want that structure built for you.</p>
+  <a class="btn" href="/">Open the cockpit</a>
+</div></div>
+
+<div class="sources">
+  <h2>Sources</h2>
+  <ul>
+    <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em> (the automatic System 1 constructs coherent narratives after outcomes are known; the deliberate System 2 is resource-intensive and easily overridden under depletion).</li>
+    <li>Seligman, M. (1991). <em>Learned Optimism</em> (the three dimensions of explanatory style: permanence, pervasiveness, and personalization; the pattern predicts recovery outcomes after adverse events).</li>
+    <li>Edmondson, A. (2011). "Strategies of Learning from Failure," <em>Harvard Business Review</em> (the three-category taxonomy of failure: preventable, complex, and intelligent; complex failures involve multiple interacting factors with no single cause).</li>
+    <li>Strenze, T. (2007). "Intelligence and socioeconomic success: A meta-analytic review of longitudinal research," <em>Intelligence</em> (durable, structured factors do more of the long-run predictive work than short-run motivational states).</li>
+    <li>Wood, W. &amp; Neal, D. (2007). "A new look at habits and the habit-goal interface," <em>Psychological Review</em>; Wood, W. (2019), <em>Good Habits, Bad Habits</em> (a large share of daily behaviour is cued by context and triggered automatically).</li>
+  </ul>
+</div>
+
+<div class="rel">
+  <a class="r" href="/learn/blameless-founder-post-mortem/">The Blameless Founder Post-Mortem: A Framework You'll Actually Use<small>Once the timing is right, this is the method that keeps the analysis useful instead of confessional.</small></a>
+  <a class="r" href="/learn/explanatory-style-after-shutdown/">Why Your Story About the Failure Matters More Than the Facts<small>Seligman's three dimensions and which explanatory pattern predicts learned helplessness.</small></a>
+</div>
+
+<footer class="foot"><div class="in">
+  The 90 Protocol is an instrument, not a coach and not a promise of a comeback. It does not give financial, legal, or medical advice. If you are in crisis, contact a local emergency line or a qualified professional.<br>
+  <a href="/learn/">All field notes</a> · <a href="/">The cockpit</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+</div></footer>
+</body>
+</html>
